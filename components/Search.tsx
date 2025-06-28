@@ -32,7 +32,7 @@ const Search = () => {
       setOpen(true);
     };
     fetchFiles();
-  }, [debouncedQuery]);
+  }, [debouncedQuery, path, searchParams, router]);
   useEffect(() => {
     if (searchQuery) {
       setQuery("");

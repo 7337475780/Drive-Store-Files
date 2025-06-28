@@ -19,6 +19,10 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { sendEmailOTP, verifySecret } from "@/lib/actions/user.actions";
 import { useRouter } from "next/navigation";
+const handleError = (err: unknown, msg: string) => {
+  console.log(err, msg);
+  throw err;
+};
 const OTPModal = ({
   accountId,
   email,
@@ -38,7 +42,9 @@ const OTPModal = ({
       const sessionId = await verifySecret({ accountId, pwd });
 
       if (sessionId) router.push("/");
-    } catch (err) {}
+    } catch (err) {
+      handleError(err, "Failed to send OTP");
+    }
     setIsLoading(false);
   };
 

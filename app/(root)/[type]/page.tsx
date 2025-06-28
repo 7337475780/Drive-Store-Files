@@ -2,11 +2,11 @@ import Card from "@/components/Card";
 import Sort from "@/components/Sort";
 import { getFiles } from "@/lib/actions/file.actions";
 import { getFileTypeParams } from "@/lib/utils";
-import { FileType, SearchParamsProps } from "@/types";
+import { FileType, SearchParamProps } from "@/types";
 import { Models } from "node-appwrite";
 import React from "react";
 
-const page = async ({ searchParams, params }: SearchParamsProps) => {
+const page = async ({ searchParams, params }: SearchParamProps) => {
   const type = ((await params)?.type as string) || "";
   const searchText = ((await searchParams)?.query as string) || "";
   const sort = ((await searchParams)?.sort as string) || "";

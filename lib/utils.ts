@@ -10,6 +10,18 @@ export const parseStringify = (value: unknown) => {
   return JSON.parse(JSON.stringify(value));
 };
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
+type UsageCategory = {
+  size: number;
+  latestDate: string;
+};
+
+type UsageSummaryInput = {
+  document: UsageCategory;
+  image: UsageCategory;
+  video: UsageCategory;
+  audio: UsageCategory;
+  other: UsageCategory;
+};
 
 export const getFileType = (filename: string) => {
   const extension = filename.split(".").pop()?.toLowerCase();
@@ -57,7 +69,7 @@ export const getFileType = (filename: string) => {
   return { type: "other", extension };
 };
 
-export const getUsageSummary = (totalSpace: any) => {
+export const getUsageSummary = (totalSpace: UsageSummaryInput) => {
   return [
     {
       title: "Documents",
