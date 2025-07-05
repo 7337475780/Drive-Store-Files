@@ -76,7 +76,7 @@ const Home = async () => {
 
                 <div className="recent-file-details">
                   <div className="flex flex-col gap-1">
-                    <p className="recent-file-name">{file.name}</p>
+                    <p className="recent-file-name  ">{file.name}</p>
 
                     <FormattedDateTime
                       date={file.$createdAt}

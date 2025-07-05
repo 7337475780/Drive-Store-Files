@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import {
   Dialog,
+  DialogTitle,
   DialogContent,
   DialogFooter,
   DialogHeader,
@@ -21,7 +22,6 @@ import { actionsDropdownItems } from "@/constants";
 import { ActionType } from "@/types";
 import Link from "next/link";
 import { constructDownloadUrl } from "@/lib/utils";
-import { DialogTitle } from "@radix-ui/react-dialog";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import {
@@ -122,7 +122,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
         </DialogHeader>
 
         {["rename", "delete", "share"].includes(value) && (
-          <DialogFooter className="flex flex-col gap-3 md:flex-row">
+          <DialogFooter className="flex flex-col gap-3 items-center md:flex-row">
             <Button onClick={closeAllModals} className="modal ">
               Cancel
             </Button>
